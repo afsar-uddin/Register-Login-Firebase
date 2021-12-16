@@ -11,10 +11,6 @@
   font-size: 18px;
 }
 
-.nav-items a:last-child {
-  display: none;
-}
-
 .nav-items a.active {
   border-color: magenta;
 }
