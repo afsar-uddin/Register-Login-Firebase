@@ -1,15 +1,15 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
 import Nav from '../Navigation/Nav';
 
 const Login = () => {
     const { googleLogin } = useAuth();
+    const location = useLocation();
     const navigate = useNavigate();
 
-    const loginGoogle = () => {
-        googleLogin();
-        navigate('/')
+    const handleLogin = () => {
+        googleLogin(location, navigate);
     }
     return (
         <>
@@ -24,7 +24,7 @@ const Login = () => {
                     </form>
                     <div className='or'>OR</div>
                     <div className='g-login'>
-                        <button onClick={loginGoogle}>Google Login</button>
+                        <button onClick={handleLogin}>Google Login</button>
                     </div>
                 </div>
             </div>

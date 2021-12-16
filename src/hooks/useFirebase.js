@@ -7,14 +7,21 @@ const useFirebase = () => {
     const googleProvider = new GoogleAuthProvider();
     const auth = getAuth();
     const [user, setUser] = useState();
+    const [authError, setAuthError] = useState('');
     // GOOGLE LOGIN
-    const googleLogin = () => {
+    const googleLogin = (location, navigate) => {
         signInWithPopup(auth, googleProvider)
             .then((result) => {
                 const user = result.user;
+                // const destination = location?.state?.from || '/';
+                const destination = location?.state?.from || '/';
+                console.log('successfully loggedin');
+                navigate(destination);
+                // navigate('/');
             }).catch((error) => {
+                setAuthError(error.message)
                 console.log('failed to sign in')
-            })
+            });
     };
     // OBSERVE WHETHER USER STATE CHANGED OR NOT 
     useEffect(() => {
