@@ -31,7 +31,7 @@
   box-sizing: border-box;
 }
 
-.form button {
+.form input[type="submit"] {
   margin-top: 10px;
   border: 1px solid #ddd;
   padding: 10px 30px;
@@ -39,4 +39,7 @@
   font-size: 18px;
   text-transform: uppercase;
   cursor: pointer;
+}
+span.error {
+  color: red;
 }

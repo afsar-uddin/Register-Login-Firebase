@@ -15,8 +15,8 @@ const Nav = () => {
     return (
         <div className="nav-items">
             <NavLink to="/">Home</NavLink>
-            <NavLink to="/register" >Register</NavLink>
-            {user?.email ? <button onClick={handleLogout}>Logout</button> : <NavLink to="/login">Login</NavLink>}
+            {user?.email ? <span>
+                <button onClick={handleLogout}>Logout</button></span> : <span><NavLink to="/register">Register</NavLink><NavLink to="/login">Login</NavLink></span>}
         </div>
     );
 };
