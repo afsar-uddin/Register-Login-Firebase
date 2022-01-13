@@ -1,6 +1,6 @@
 # Register and Login functionality
 
-Live Site [Click Here](https://github.com/facebook/create-react-app).
+Live Site [Click Here](https://my-firebase-register-login.web.app/).
 
 ## Used Technologies
     * React JS
