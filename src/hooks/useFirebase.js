@@ -13,7 +13,7 @@ const useFirebase = () => {
         signInWithPopup(auth, googleProvider)
             .then((result) => {
                 const user = result.user;
-                const destination = location?.state?.from || '/';
+                const destination = location?.state?.from || '/login-success';
                 console.log('successfully loggedin');
                 navigate(destination);
                 // navigate('/');
@@ -35,7 +35,7 @@ const useFirebase = () => {
     }, [auth]);
 
     // REGISTER USER
-    const registerUser = (name, email, password, navigate) => {
+    const registerUser = (name, email, password, navigate, location) => {
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const newUser = { email, displayName: name };
@@ -44,14 +44,14 @@ const useFirebase = () => {
                 setAuthError(error.message);
                 console.log(error)
             })
-        navigate('/')
+        navigate('/registration-success')
     };
 
     // SIGN IN USING EMAIL AND PASSWORD
     const loginEmailPassword = (email, password, location, navigate) => {
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                const destination = location?.state?.from || '/';
+                const destination = location?.state?.from || '/login-success';
                 navigate(destination);
                 setAuthError('');
             }).catch((error) => {

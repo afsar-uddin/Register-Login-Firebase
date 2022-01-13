@@ -31,7 +31,8 @@
   box-sizing: border-box;
 }
 
-.form input[type="submit"] {
+.form input[type="submit"],
+.g-login button {
   margin-top: 10px;
   border: 1px solid #ddd;
   padding: 10px 30px;
@@ -42,4 +43,10 @@
 }
 span.error {
   color: red;
+}
+.nav-items button {
+  border: none;
+  background-color: transparent;
+  font-size: 18px;
+  cursor: pointer;
 }

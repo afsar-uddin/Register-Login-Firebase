@@ -4,7 +4,7 @@ import useAuth from '../hooks/useAuth';
 import Nav from '../Navigation/Nav';
 
 const Login = () => {
-    const { googleLogin, loginEmailPassword } = useAuth();
+    const { googleLogin, loginEmailPassword, loading } = useAuth();
     const [loginData, setLoginData] = useState();
     const location = useLocation();
     const navigate = useNavigate();
@@ -23,6 +23,7 @@ const Login = () => {
     const handleLogin = () => {
         googleLogin(location, navigate);
     }
+    if (loading) return <div className='loader'><p>Loading...</p></div>
     return (
         <>
             <Nav />
